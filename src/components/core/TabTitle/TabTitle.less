@@ -1,0 +1,23 @@
+@import '../../../styles/colours';
+@import '../../../styles/elements';
+
+.TabTitle {
+    float: left;
+    padding: 1em 3em 1em 3em;
+    background-color: @grey50;
+    border: none;
+    border-top: 5px solid @grey50;
+    font-weight: bold;
+    &:hover {
+        .transition;
+        background-color: @lightBlue500;
+        border-top: 5px solid @deepOrange700;
+        color: @grey100;
+    }
+    &.active {
+        background-color: @white;
+        color: @deepOrange700;
+        overflow: hidden;
+        border-top: 5px solid @deepOrange700;
+    }
+}
