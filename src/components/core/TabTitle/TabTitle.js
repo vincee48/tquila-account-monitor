@@ -16,8 +16,6 @@ var TabTitle = React.createClass({
     handleTabClick: function() {
         if (this.props.createNew) {
             this.props.createNewTab();
-        } else if (this.props.remove) {
-            this.props.removeTab();
         } else {
             this.props.changeTab(this.props.tab);
         }
@@ -30,9 +28,6 @@ var TabTitle = React.createClass({
         var title = this.state.title;
         if (this.props.createNew) {
             title = <span className="glyphicon glyphicon-plus"></span>;
-        } else if (this.props.remove) {
-            title = <span className="glyphicon glyphicon-remove"></span>;
-            cls += " pull-right close-tab btn-danger";
         } else {
             if (this.props.tab.account) {
                 title = this.props.tab.account.name;
@@ -42,6 +37,7 @@ var TabTitle = React.createClass({
         return (
             <button className={cls} onClick={this.handleTabClick}>
                 { title }
+                { this.props.createNew ? null : <span className="remove-icon text-danger glyphicon glyphicon-remove" onClick={this.props.removeTab}></span> }
             </button>
         );
     }

@@ -36,7 +36,10 @@ table {
     }
     .tab-title-wrapper {
         width: 100%;
-        overflow: auto;
+        overflow-y: hidden;
+        overflow-x: auto;
+        height: 5em;
+        white-space: nowrap;
     }
 }
 
@@ -63,4 +66,8 @@ table {
     &:hover {
         background-color: @success-dark;
     }
+}
+
+.text-danger {
+    color: @danger;
 }

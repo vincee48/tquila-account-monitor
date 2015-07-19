@@ -25,7 +25,7 @@ var TabsTemplate = React.createClass({
     render: function() {
         var tabTitles = this.state.tabs.map(function(tab,i) {
             return (
-                <TabTitle key={tab.id} tab={tab} changeTab={this.changeTab} active={this.state.selectedTabId === tab.id}>
+                <TabTitle key={tab.id} tab={tab} changeTab={this.changeTab} active={this.state.selectedTabId === tab.id} removeTab={this.removeTab} >
                 </TabTitle>
             );
         }, this);
@@ -46,7 +46,6 @@ var TabsTemplate = React.createClass({
                         <div className="tab-title-wrapper">
                             { tabTitles }
                             <TabTitle createNew="true" createNewTab={this.createNewTab} />
-                            <TabTitle remove="true" removeTab={this.removeTab} />
                         </div>
                         { tabs }
                     </div>
