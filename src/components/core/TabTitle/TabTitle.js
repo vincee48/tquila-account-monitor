@@ -32,6 +32,7 @@ var TabTitle = React.createClass({
             title = <span className="glyphicon glyphicon-plus"></span>;
         } else if (this.props.remove) {
             title = <span className="glyphicon glyphicon-remove"></span>;
+            cls += " pull-right close-tab btn-danger";
         } else {
             if (this.props.tab.account) {
                 title = this.props.tab.account.name;

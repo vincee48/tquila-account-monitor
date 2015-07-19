@@ -6,7 +6,6 @@ var AccountStore = require('../stores/Account/AccountStore');
 
 // Mixin to be used for handling actions with multiple accounts
 var AccountsMixin = {
-    mixins: [Reflux.ListenerMixin],
 
     getInitialState: function() {
         return {

@@ -1,5 +1,6 @@
 'use strict';
 
+var Reflux = require('reflux');
 var React = require('react/addons');
 var Router = require('react-router');
 var Link = Router.Link;
@@ -10,7 +11,7 @@ var AccountsMixin = require('../../../mixins/AccountsMixin');
 require('./Home.less');
 
 var Home = React.createClass({
-    mixins: [AccountsMixin, Navigation],
+    mixins: [Reflux.ListenerMixin, AccountsMixin, Navigation],
 
     componentWillMount: function() {
         // Do not show the home view when an account has been selected for the tab
@@ -40,7 +41,7 @@ var Home = React.createClass({
                     {
                         this.state.accounts.map(function(account, i) {
                             return (
-                                <tr onClick={this.selectAccount.bind(this,account.id)}>
+                                <tr onClick={this.selectAccount.bind(this,account.id)} key={account.id}>
                                     <td>{account.id}</td>
                                     <td>{account.name}</td>
                                     <td>{account.accountNumber}</td>

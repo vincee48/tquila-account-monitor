@@ -44,9 +44,9 @@ var TabsTemplate = React.createClass({
                 <div className="main-content">
                     <div className="container">
                         <div className="tab-title-wrapper">
-                            <TabTitle remove="true" removeTab={this.removeTab} />
                             { tabTitles }
                             <TabTitle createNew="true" createNewTab={this.createNewTab} />
+                            <TabTitle remove="true" removeTab={this.removeTab} />
                         </div>
                         { tabs }
                     </div>

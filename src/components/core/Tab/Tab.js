@@ -11,7 +11,8 @@ require('./Tab.less');
  * The following has been assumed as a user story
  * 1. Each tab will be associated to a single account
  * 2. Each tab will default to the 'View' view if an account is selected. Otherwise display the 'Home' view for selection.
- *
+ * 3. Accounts are fairly static and do not require current information from Salesforce (cached)
+ * 4. Opportunities are regularly updating and require frequent querying (not cached, on demand)
 */
 var Tab = React.createClass({
 

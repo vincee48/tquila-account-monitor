@@ -4,20 +4,27 @@
 .TabTitle {
     float: left;
     padding: 1em 3em 1em 3em;
-    background-color: @grey50;
+    background-color: @background;
     border: none;
-    border-top: 5px solid @grey50;
+    border-top: 5px solid @background;
     font-weight: bold;
     &:hover {
         .transition;
-        background-color: @lightBlue500;
-        border-top: 5px solid @deepOrange700;
-        color: @grey100;
+        background-color: @invert;
+        border-top: 5px solid @primary;
+        color: @invert-font;
     }
     &.active {
         background-color: @white;
-        color: @deepOrange700;
+        color: @primary-dark;
         overflow: hidden;
-        border-top: 5px solid @deepOrange700;
+        border-top: 5px solid @primary-dark;
+    }
+    &.close-tab {
+        border-top: 5px solid @danger;
+        &:hover {
+            border-top: 5px solid @primary-dark;
+            color: @white;
+        }
     }
 }

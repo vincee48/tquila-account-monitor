@@ -9,7 +9,7 @@ var AccountStore = Reflux.createStore({
     data: {
         accounts: [
             // Testing data
-
+/*
             {
                 id: '01a',
                 name: 'SAI Global',
@@ -18,18 +18,20 @@ var AccountStore = Reflux.createStore({
             },
             {
                 id: '02a',
-                name: 'Tquila',
+                name: 'Tquila &amp;',
                 description: 'More stuff',
                 accountNumber: '456'
             }
-
+*/
         ]
     },
-/*
+
     init: function() {
         var salesforce = new RemoteObjectModel.Account();
 
-        salesforce.retrieve({ limit : 5 }, function (err, records, cb) {
+        salesforce.retrieve({
+            limit: 5
+        }, function (err, records, cb) {
             if (err) {
                 console.error('Error occurred: ' + err);
             }
@@ -47,10 +49,10 @@ var AccountStore = Reflux.createStore({
             }
         }.bind(this));
     },
-*/
+
     // Return the entire array of accounts
     getAccounts: function() {
-        console.log('Retrieving all accounts.');
+        console.log('Refreshing all accounts.');
         return this.data.accounts;
     },
 
@@ -70,8 +72,8 @@ var AccountStore = Reflux.createStore({
         return null;
     },
 
-    onUpdate: function(account) {
-/*
+    onUpdate: function(account, callback) {
+
         var salesforce = new RemoteObjectModel.Account({
             Id: account.id,
             Name: account.name,
@@ -83,8 +85,9 @@ var AccountStore = Reflux.createStore({
             if (err) {
                 console.error('Error occurred: ' + err);
             }
+            callback();
         });
-*/
+
         this.trigger();
     }
 
