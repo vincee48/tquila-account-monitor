@@ -27,16 +27,17 @@ body {
     }
 }
 
+.table > thead>tr>th {
+    border-bottom: none;
+}
+
 table {
-    thead {
-        border-bottom: none;
-    }
     tbody {
         tr {
             &:hover {
                 .transition;
                 background-color: @invert !important;
-                border-top: 3px solid @primary !important;
+                border-top: 2px solid @primary !important;
                 color: @invert-font;
                 cursor: pointer;
             }
