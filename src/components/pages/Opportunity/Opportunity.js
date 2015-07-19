@@ -130,19 +130,19 @@ var Opportunity = React.createClass({
                 </form>
 
                 <div className="row form-buttons">
-                    <div className="col-md-3">
+                    <div className="col-xs-3">
                         <button className="btn btn-primary" onClick={this.closeView}>
                             <span className="glyphicon glyphicon-arrow-left"></span> Back
                         </button>
                     </div>
                     {
                         this.state.editing ?
-                            <div className="col-md-9">
+                            <div className="col-xs-9">
                                 <button type="button" onClick={this.onSubmit} className="btn btn-primary"><span className="glyphicon glyphicon-floppy-save"></span> Submit</button>
                                 <button type="button" onClick={this.stopEditing} className="btn btn-primary"><span className="glyphicon glyphicon-ban-circle"></span> Cancel</button>
                             </div>
                             :
-                            <div className="col-md-9">
+                            <div className="col-xs-9">
                                 <button className="btn btn-primary" onClick={this.startEditing}>
                                     <span className="glyphicon glyphicon-edit"></span> Edit
                                 </button>

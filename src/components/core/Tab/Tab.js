@@ -22,7 +22,7 @@ var Tab = React.createClass({
         if (this.props.visible) {
             content = (
                 <div className="Tab">
-                    <RouteHandler tab={this.props.tab} updateTabAccount={this.props.updateTabAccount} />
+                    <RouteHandler back={this.props.back} tab={this.props.tab} updateTabAccount={this.props.updateTabAccount} />
                 </div>
             );
         }

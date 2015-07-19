@@ -32,7 +32,7 @@ var TabsTemplate = React.createClass({
 
         var tabs = this.state.tabs.map(function(tab,i) {
             return (
-                <Tab key={tab.id} tab={tab} updateTabAccount={this.updateTabAccount} visible={this.state.selectedTabId === tab.id}>
+                <Tab back={this.back} key={tab.id} tab={tab} updateTabAccount={this.updateTabAccount} visible={this.state.selectedTabId === tab.id}>
                 </Tab>
             );
         }, this);
@@ -76,6 +76,17 @@ var TabsTemplate = React.createClass({
             nextIncrement: this.state.nextIncrement+1,
             selectedTabId: this.state.nextIncrement
         });
+    },
+
+    back: function() {
+        var tabs = this.state.tabs.slice();
+        for (var i = 0; i < this.state.tabs.length; i++) {
+            if (tabs[i].id === this.state.selectedTabId) {
+                tabs[i].account = null;
+                break;
+            }
+        }
+        this.setState({ tabs: tabs });
     },
 
     // Remove selected tab

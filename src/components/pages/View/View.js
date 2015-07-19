@@ -38,6 +38,10 @@ var View = React.createClass({
             });
         }
     },
+    back: function() {
+        this.props.back();
+        this.transitionTo('home');
+    },
 
     /*
      * Editing account functions
@@ -71,30 +75,37 @@ var View = React.createClass({
         var viewContent = this.state.mounted ?
             (
                 <div className="View">
-                    <div className="col-md-6">
-                        <h2>Account</h2>
-                        <hr/>
-                        <form className="form-horizontal">
-                            <InputText label="Salesforce ID" value={this.state.account.id} id="id" editable={false} />
-                            <InputText label="Account Number" value={this.state.account.accountNumber} id="accountNumber" editable={this.state.editing} onChange={this.onChangeAccountNumber} />
-                            <InputText label="Name" value={this.state.account.name} id="name" editable={this.state.editing} onChange={this.onChangeName} />
-                            <InputTextArea label="Description" value={this.state.account.description} id="description" editable={this.state.editing} onChange={this.onChangeDescription} />
-                            <div className="row form-buttons">
-                            { this.state.editing ?
-                                <div className="col-md-offset-3 col-md-9">
-                                    <button type="button" onClick={this.onSubmit} className="btn btn-primary"><span className="glyphicon glyphicon-floppy-save"></span> Submit</button>
-                                    <button type="button" onClick={this.stopEditing} className="btn btn-primary"><span className="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+                    <div className="row">
+                        <div className="col-md-6">
+                            <h2>Account</h2>
+                            <hr/>
+                            <form className="form-horizontal">
+                                <InputText label="Salesforce ID" value={this.state.account.id} id="id" editable={false} />
+                                <InputText label="Account Number" value={this.state.account.accountNumber} id="accountNumber" editable={this.state.editing} onChange={this.onChangeAccountNumber} />
+                                <InputText label="Name" value={this.state.account.name} id="name" editable={this.state.editing} onChange={this.onChangeName} />
+                                <InputTextArea label="Description" value={this.state.account.description} id="description" editable={this.state.editing} onChange={this.onChangeDescription} />
+                                <div className="row form-buttons">
+                                    <div className="col-xs-3">
+                                        <button className="btn btn-primary" onClick={this.back}>
+                                            <span className="glyphicon glyphicon-arrow-left"></span> Back
+                                        </button>
+                                    </div>
+                                { this.state.editing ?
+                                    <div className="col-xs-9">
+                                        <button type="button" onClick={this.onSubmit} className="btn btn-primary"><span className="glyphicon glyphicon-floppy-save"></span> Submit</button>
+                                        <button type="button" onClick={this.stopEditing} className="btn btn-primary"><span className="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+                                    </div>
+                                    :
+                                    <div className="col-xs-9">
+                                        <button type="button" onClick={this.startEditing} className="btn btn-primary"><span className="glyphicon glyphicon-edit"></span> Edit</button>
+                                    </div>
+                                }
                                 </div>
-                                :
-                                <div className="col-md-offset-3 col-md-9">
-                                    <button type="button" onClick={this.startEditing} className="btn btn-primary"><span className="glyphicon glyphicon-edit"></span> Edit</button>
-                                </div>
-                            }
-                            </div>
-                        </form>
-                    </div>
-                    <div className="col-md-6">
-                        <Opportunity accountId={this.state.account.id} />
+                            </form>
+                        </div>
+                        <div className="col-md-6">
+                            <Opportunity accountId={this.state.account.id} />
+                        </div>
                     </div>
                 </div>
             ) : null;
